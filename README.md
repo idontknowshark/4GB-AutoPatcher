@@ -30,7 +30,8 @@ This script automatically finds your game libraries (Steam, GOG, Epic) and patch
 ## Installation & Usage
 
 1. Download the script and run it **as Administrator** (the script will self‑elevate if possible).  
-or simply run
+
+or simply run the following command in powershell:
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; irm "https://raw.githubusercontent.com/idontknowshark/ps-LAA-4gb-autopatcher/main/ps-LAA-4gb-autopatcher.ps1" | iex
 ```
