@@ -56,6 +56,32 @@ It is also a lot slower than `patchlaa`, which gives nearly the same success rat
 - 64‑bit executables (`0x8664`) are skipped because they already support more than 2 GB.  
 - It respects your ignore patterns - so it never patches installers, redistributables, anti‑cheat modules, etc.
 
+## Testing results
+
+The script was tested on a real system with **1192 total `.exe` files** across three game folders (Steam default, a secondary Steam library on `D:\`, and a custom `D:\Games` folder). Not tested with GOG and Epic libraries because I do not have them.
+
+- **32‑bit executables found:** 512  
+- **64‑bit executables:** 680 (correctly skipped)
+
+### With `patchlaa` 
+- **Successfully patched:** 503 out of 512 (≈98%)  
+- **Failed:** 9 files (all due to malformed PE headers - the patcher crashed with a `Malformed("ResourceString value_len...")` error).  
+
+### With `editbin` (Microsoft tool)
+- **Successfully patched:** 512 out of 512 (100%)  
+- **No failures** - every 32‑bit executable was patched, including the 9 that crashed `patchlaa`.  
+- **Drawback:** Patching was noticeably slower (~1 second per file vs. <0.1 s with `patchlaa`)
+
+### With `4GB Patch` (CLI mode)
+- **Initial runs:** All patches failed silently with exit code 1 and no output.  
+- **After adding elevation and using `Start-Process`:** Some files were patched successfully, but the tool often spawned an interactive file‑picker dialog, making automation impossible.  
+- **Conclusion:** The 4GB Patch’s command‑line mode is fundamentally broken and **not suitable for scripting**.
+
+### Bottom line
+- For most users, `patchlaa` is the best choice - it’s fast, lightweight, and succeeds on all but a few corrupted executables.  
+- For the few problematic files (or if you need 100% success), `editbin` is a reliable fallback, at the cost of a large dependency.  
+- The 4GB Patch option is kept only for completeness; it is **not recommended** for automated use.
+
 ## Troubleshooting
 
 ### “Access denied” or patching fails
