@@ -103,7 +103,7 @@ The script was tested on a real system with **1192 total `.exe` files** across t
   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ## Credits
-- patchlaa by [slonkazoid](https://crates.io/users/slonkazoid)
+- patchlaa by [slonkazoid](https://github.com/slonkazoid)
 - 4GB Patch by [NTCore](https://ntcore.com)
 - editbin from [Microsoft Visual Studio](https://visualstudio.microsoft.com)
 
