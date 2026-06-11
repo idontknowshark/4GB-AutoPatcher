@@ -14,6 +14,7 @@ This script automatically finds your game libraries (Steam, GOG, Epic) and patch
 - Support for custom libraries (e.g., `D:\Games`, `E:\SteamLibrary`).  
 - Ignores specific folders or file names to avoid patching non‑game files (e.g., `*setup.exe`, `DirectX`, `Tools`).  
 - Supports multiple patchers (`patchlaa`, `4GB Patch`, `editbin`).  
+- Option to create backups of the eligible `.exe` files before patching.
 - Verbose and extensive logging of everything that happens.
 
 ## Dependencies
