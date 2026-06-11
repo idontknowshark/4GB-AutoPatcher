@@ -44,11 +44,11 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; irm "https://raw.git
 
 ## Patcher comparison
 
-| Patcher       | Success rate (tested) | Speed       | Dependencies                 | Backups | Notes                                                       |
-|---------------|-----------------------|-------------|------------------------------|---------|-------------------------------------------------------------|
-| `patchlaa`    | ≈98%                  | Very fast   | Rust (auto‑installed)        | No      | **Recommended** - modern, gives clear output.               |
-| `4gb_patch`   | Low (CLI mode)        | Slow        | None                         | Yes     | GUI tool; CLI mode often fails.                             |
-| `editbin`     | 100%                  | Slow        | Visual Studio (≥5 GB)        | No      | Official Microsoft tool; requires large download.           |
+| Patcher       | Success rate (tested) | Speed       | Dependencies                 | Notes                                                       |
+|---------------|-----------------------|-------------|------------------------------|-------------------------------------------------------------|
+| `patchlaa`    | ≈98%                  | Very fast   | Rust (auto‑installed)        | **Recommended** - modern, gives clear output.               |
+| `4gb_patch`   | None                  | Very fast   | None                         | GUI tool; CLI mode often fails.                             |
+| `editbin`     | 100%                  | Slow        | Visual Studio (≥5 GB)        | Official Microsoft tool; requires large download.           |
 
 ### Why not always use `editbin`?
 Because it requires the user to install Visual Studio Build Tools, which is a huge download and overkill for most people. 
